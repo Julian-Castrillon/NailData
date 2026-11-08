@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - NailData</title>
+
+    <!-- Hoja de estilos -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="pagina-login">
+
+    <div class="tarjeta-login">
+        <h1 class="tarjeta-login__titulo">NailData</h1>
+
+        <p class="tarjeta-login__subtitulo">
+            Sistema de gestión de citas, servicios y clientas<br>
+            en estudios de uñas<br>
+            Ingrese sus credenciales para continuar
+        </p>
+
+        <div id="error-msg" class="alert" style="display: none; padding: 10px; background-color: #f8d7da; color: #721c24; border-radius: 8px; margin-bottom: 15px; text-align: center; font-size: 13px;">
+            Usuario o contraseña incorrectos.
+        </div>
+
+        <form class="formulario" action="validar.php" method="POST">
+            <label class="formulario__etiqueta" for="usuario">USUARIO</label>
+            <input
+                class="formulario__campo"
+                type="text"
+                id="usuario"
+                name="usuario"
+                placeholder="Ingrese su usuario"
+                autocomplete="username"
+                required
+            >
+
+            <label class="formulario__etiqueta" for="clave">CONTRASEÑA</label>
+            <input
+                class="formulario__campo"
+                type="password"
+                id="clave"
+                name="clave"
+                placeholder="Ingrese su contraseña"
+                autocomplete="current-password"
+                required
+            >
+
+            <button class="formulario__boton" type="submit">Iniciar sesión</button>
+        </form>
+
+        <div class="tarjeta-login__pie">
+            NailData &copy; 2026
+        </div>
+    </div>
+
+    <script>
+        // Muestra la alerta de error si validar.php redirige con ?error=1
+        if (window.location.search.includes('error=1')) {
+            document.getElementById('error-msg').style.display = 'block';
+        }
+    </script>
+</body>
+</html>

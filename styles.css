@@ -1,0 +1,192 @@
+/* ==========================================================
+   VARIABLES DE COLOR (Paleta Suave y Femenina)
+   ========================================================== */
+:root {
+    --color-primario: #e3a8b4; 
+    --color-primario-hover: #d195a1; 
+    --color-texto: #5a4a4d; 
+    --color-texto-claro: #8e8083;
+    --color-borde: #f0d9de;
+    --color-blanco: #ffffff;
+}
+
+/* ==========================================================
+   REINICIO GLOBAL
+   ========================================================== */
+* { 
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* ==========================================================
+   ANIMACIONES (Nuevas)
+   ========================================================== */
+@keyframes aparecerSuave {
+    0% {
+        opacity: 0;
+        transform: translateY(30px) scale(0.98);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* ==========================================================
+   BLOQUE: pagina-login (la página completa)
+   ========================================================== */
+.pagina-login {
+    font-family: 'Poppins', Arial, sans-serif;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding: 20px;
+    color: var(--color-texto);
+
+    /* Imagen de fondo original */
+    background-image: url("/NailData/img/fondo.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* Capa con efecto cristal dinámico */
+.pagina-login::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background: rgba(74, 59, 62, 0.45);
+    backdrop-filter: blur(6px); 
+    -webkit-backdrop-filter: blur(6px);
+    z-index: 0;
+}
+
+/* ==========================================================
+   BLOQUE: tarjeta-login 
+   ========================================================== */
+.tarjeta-login {
+    width: 100%;
+    max-width: 360px; 
+    background: rgba(255, 255, 255, 0.95); 
+    padding: 40px 30px; 
+    border-radius: 20px; 
+    border: 1px solid rgba(227, 168, 180, 0.3);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15); 
+    position: relative;
+    z-index: 1;
+    
+    /* Aplicamos la animación al cargar la página */
+    animation: aparecerSuave 0.7s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.tarjeta-login__titulo {
+    text-align: center;
+    color: var(--color-primario-hover);
+    font-size: 26px; 
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 5px;
+}
+
+.tarjeta-login__subtitulo {
+    text-align: center;
+    color: var(--color-texto-claro);
+    font-size: 12px;
+    line-height: 1.5;
+    margin-bottom: 25px;
+}
+
+.tarjeta-login__pie {
+    text-align: center;
+    font-size: 11px;
+    color: var(--color-texto-claro);
+    margin-top: 25px;
+}
+
+/* ==========================================================
+   BLOQUE: formulario 
+   ========================================================== */
+.formulario__etiqueta {
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 6px;
+    color: var(--color-texto);
+    font-weight: 600;
+    font-size: 12px; 
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.formulario__campo {
+    width: 100%;
+    padding: 12px 15px; 
+    border: 1.5px solid var(--color-borde);
+    border-radius: 10px;
+    font-size: 13px;
+    font-family: inherit;
+    background: #fcf9f9;
+    color: var(--color-texto);
+    
+    /* Transición más fluida para el efecto de clic */
+    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.formulario__campo:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    background: var(--color-blanco);
+    box-shadow: 0 0 0 4px rgba(227, 168, 180, 0.15);
+    /* Un ligero empuje hacia arriba al escribir */
+    transform: translateY(-2px); 
+}
+
+.formulario__campo::placeholder {
+    color: #c9babb;
+}
+
+.formulario__boton {
+    width: 100%;
+    padding: 14px;
+    margin-top: 25px;
+    background: var(--color-primario);
+    color: var(--color-blanco);
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    font-family: inherit;
+    box-shadow: 0 4px 12px rgba(227, 168, 180, 0.3); 
+    
+    /* Transición para el botón dinámico */
+    transition: all 0.3s ease;
+}
+
+.formulario__boton:hover {
+    background: var(--color-primario-hover);
+    box-shadow: 0 8px 22px rgba(209, 149, 161, 0.5);
+    /* El botón se eleva al pasar el mouse */
+    transform: translateY(-3px);
+}
+
+.formulario__boton:active {
+    /* El botón se hunde al hacer clic */
+    transform: translateY(1px);
+    box-shadow: 0 2px 8px rgba(209, 149, 161, 0.4);
+}
+
+/* ==========================================================
+   ADAPTABLE: pantallas pequeñas
+   ========================================================== */
+@media (max-width: 480px) {
+    .tarjeta-login {
+        padding: 30px 20px;
+        border-radius: 16px;
+    }
+}
