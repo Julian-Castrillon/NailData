@@ -242,7 +242,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
             <?php endif; ?>
 
-            <form method="POST" action="agregar_cita.php">
+            <form method="POST" action="agendar.php">
                 <div class="form-group">
                     <label for="id_usuario">Seleccionar Clienta:</label>
                     <select id="id_usuario" name="id_usuario" required>

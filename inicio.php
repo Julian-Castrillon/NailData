@@ -175,6 +175,12 @@ if ($_SESSION['rol'] === 'clienta') {
                     <p>Asigna una nueva cita a las clientas registradas, verificando que el horario esté disponible.</p>
                     <a href="agendar.php" class="boton">Agendar cita</a>
                 </article>
+
+                <article class="tarjeta">
+                    <h3>Observar citas pendientes</h3>
+                    <p>Muestra el listado de citas pendientes y permite cancelarlas si es necesario.</p>
+                    <a href="citas_pendientes.php" class="boton">Ver citas pendientes</a>
+                </article>
             </section>
         <?php endif; ?>
     </main>
